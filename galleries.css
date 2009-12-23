@@ -1,0 +1,6 @@
+
+div#gallary ul li {
+	display: inline-block;
+	float: left;
+	margin: 7px;
+}
