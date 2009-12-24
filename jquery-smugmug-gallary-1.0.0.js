@@ -26,14 +26,11 @@ $.fn.smugmugGallaries = function(options) {
 
 				if (album.Category.Name == category)
 				{
-					var url = "http://" + nick + ".smugmug.com/";
-					if (album.Category)
-					url += smug_escape(album.Category.Name) + "/";
-
-					if (album.SubCategory)
-					url += smug_escape(album.SubCategory.Name) + "/";
-
-					url += smug_escape(album.Title);
+					var url = "http://" + nick + ".smugmug.com/gallery/";
+					url += album.id;
+					url += "_";
+					url += album.Key;
+					
 					html = "<li><a href=\"" + url + "\" id=\"" + album.id + "\">" + album.Title + "</a></li>";
 					ul.append(html);
 
