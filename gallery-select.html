@@ -9,9 +9,17 @@
 	  $.smugmug.APIVersion = "1.2.2";	
 	
 		$(function() {
-			$("#gallery").smugmugGalleries({
-				nickname: "hurleyhome",
-				category: "2009"
+			$("#go").click(function() {
+				var nick = $("#nickname").attr("value");
+				var cat = $("#category").attr("value");
+				
+				opts = {nickname: nick};
+				
+				if (cat != "")
+  				opts["category"] = cat;
+
+        console.log(opts);
+  			$("#gallery").empty().smugmugGalleries(opts);
 			});
 		});
 		
@@ -20,8 +28,19 @@
 	<link href="galleries.css" rel="stylesheet" type="text/css"/>
 	<title>SmugMug Albums</title>
 </head>
-<h1>My 2009 Albums</h1>
 <body>
+	<h1>Galleries</h1>
+
+	<form>
+	Nickname:<br/>
+	<input id='nickname' type='text' value='hurleyhome'/><br/>
+	<br/>
+	Category:<br/>
+	<input id='category' type='text' value='2009'/><br/>
+	<br/>
+	<button id='go' type='button'>Display</button>
+	</form>
+	
 	<div id="gallery"></div>
 </body>
 </html>

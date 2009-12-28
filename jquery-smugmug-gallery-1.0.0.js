@@ -1,6 +1,6 @@
 (function($) {
 	
-var ss = $.smugmugGallaries = {};
+var ss = $.smugmugGalleries = {};
 
 var smug_escape = function(str) {
   str = str.replace(/ /g, "-");
@@ -8,9 +8,10 @@ var smug_escape = function(str) {
   return str;
 };
 
-$.fn.smugmugGallaries = function(options) {
+$.fn.smugmugGalleries = function(options) {
 	var nick = options.nickname;
 	var category = options.category;
+	console.log("category: " + category );
 	
 	// Setup div
 	var div = this;
@@ -24,7 +25,9 @@ $.fn.smugmugGallaries = function(options) {
 			$.each(albums.Albums, function() {
 				var album = this;
 
-				if (album.Category.Name == category)
+        // console.log("category");
+        // console.log(category);
+				if (category == undefined || album.Category.Name == category)
 				{
 					var url = "http://" + nick + ".smugmug.com/gallery/";
 					url += album.id;
