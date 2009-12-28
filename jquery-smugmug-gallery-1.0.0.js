@@ -11,7 +11,6 @@ var smug_escape = function(str) {
 $.fn.smugmugGalleries = function(options) {
 	var nick = options.nickname;
 	var category = options.category;
-	console.log("category: " + category );
 	
 	// Setup div
 	var div = this;
@@ -25,8 +24,6 @@ $.fn.smugmugGalleries = function(options) {
 			$.each(albums.Albums, function() {
 				var album = this;
 
-        // console.log("category");
-        // console.log(category);
 				if (category == undefined || album.Category.Name == category)
 				{
 					var url = "http://" + nick + ".smugmug.com/gallery/";
